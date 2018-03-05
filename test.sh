@@ -2,10 +2,10 @@
 echo "Building Template..."
 docker build . -t flask_stack_test && \
 echo "Cloning Flask Demo..." && \
-git clone https://github.com/bnbalsamo/flask_stack_minimal_demo.git || exit 1 
+git clone https://github.com/uchicago-library/flask_stack_minimal_demo.git || exit 1 
 cd flask_stack_minimal_demo || exit 1 
 echo "Altering demo Dockerfile"
-cat Dockerfile | sed 's/bnbalsamo\/flask_stack/flask_stack_test/g' > Dockerfile.test
+cat Dockerfile | sed 's/uchicago-library\/flask_stack/flask_stack_test/g' > Dockerfile.test
 echo "Building Demo..." 
 docker build . --file Dockerfile.test -t my_demo_test || exit 1 
 echo "Running Demo..."
@@ -23,10 +23,10 @@ if [[ $response != "Hello, World"'!' ]]; then echo "$response" && exit 1; fi || 
 echo "All good!"
 cd ..
 echo "Cloning Django Demo..." && \
-git clone https://github.com/bnbalsamo/flask_stack_minimal_django_demo.git || exit 1
+git clone https://github.com/uchicago-library/flask_stack_minimal_django_demo.git || exit 1
 cd flask_stack_minimal_django_demo || exit 1
 echo "Altering demo Dockerfile"
-cat Dockerfile | sed 's/bnbalsamo\/flask_stack/flask_stack_test/g' > Dockerfile.test
+cat Dockerfile | sed 's/uchicago-library\/flask_stack/flask_stack_test/g' > Dockerfile.test
 echo "Building Demo..." 
 docker build . --file Dockerfile.test -t my_demo_test_django || exit 1 
 echo "Running Demo..."
